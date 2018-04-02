@@ -190,6 +190,11 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var selected: UIImage?
         
+        var currentDate = Date()
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateString = dateFormatter.string(from: currentDate)
+        
         if let photoInfo = info[UIImagePickerControllerPHAsset] as? PHAsset {
         if let creationDate = photoInfo.creationDate {
         let tempDateString: String
